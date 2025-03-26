@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import StatsBlock from "./components/StatsBlock";
 import BestStudents from "./components/BestStudents";
 import Contact from "./components/Contact";
+import ProfileCard from "./components/ProfileCard"; // Предполагается, что компонент ProfileCard находится в отдельном файле
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <section id="вопросы">
           <Features />
         </section>
+        <ProfileCard />
         <BestStudents />
         <Contact />
         <section id="данные">
