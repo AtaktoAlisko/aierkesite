@@ -1,43 +1,45 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Goals from "./components/Courses"; // Make sure this path is correct
 import Features from "./components/Features";
 import Courses from "./components/Courses";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import StatsBlock from "./components/StatsBlock";
-import LearningSystem from "./components/LearningSystem";
-import TeacherShowcase from "./components/TeacherShowCase";
 import BestStudents from "./components/BestStudents";
+import Contact from "./components/Contact";
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
       <main>
         <Hero />
-        <StatsBlock />
-        <section id="курстар">
+
+        <section id="актуальные-данные">
+          <StatsBlock />
+        </section>
+        <section id="репродуктивное-здоровье">
           <Courses />
         </section>
-        <section id="оқу жүйесі">
-          <LearningSystem />
+        <section id="вопросы">
+          <Features />
         </section>
-        <section id="мұғалімдер">
-          <TeacherShowcase />
-        </section>
-        <Features />
-        <Testimonials />
         <BestStudents />
-        <section id="байланыс">
-          <Contact />
+        <Contact />
+        <section id="данные">
+          <Footer />
         </section>
       </main>
-      <Footer />
-    </>
+
+      {/* <Routes>
+        <Route path="/" element={<Goals />} />
+        <Route path="/questions" element={<QuestionsPage />} />
+      </Routes> */}
+    </Router>
   );
 }
 

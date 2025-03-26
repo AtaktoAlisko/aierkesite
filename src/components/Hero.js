@@ -1,112 +1,90 @@
 import React from "react";
-import banner from "../assets/images/banner.png";
-import { FiAward } from "react-icons/fi";
+import { FiHeart } from "react-icons/fi";
+import banner from "../assets/images/banner.png"; // Replace with your image
 
-const HeroEduStyle = () => {
+const HeroFertility = () => {
   return (
-    <section className="pt-10 relative bg-gradient-to-br from-[#04016C] via-[#2C0F9B] to-[#4A16BD] text-white overflow-hidden">
-      {/* Декоративные элементы */}
-      <div className="absolute hidden lg:block top-1/2 left-1/3 transform -translate-y-1/3 -translate-x-1/2 z-0 w-[300px] md:w-[400px] lg:w-[500px] h-[300px] md:h-[400px] lg:h-[500px] rounded-full border border-blue-400/30" />
-      <div className="absolute hidden md:block top-0 right-0 z-0 opacity-30">
-        <svg
-          className="w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
-          viewBox="0 0 200 200"
-        >
-          <path
-            fill="#ffffff"
-            d="M39.4,-70.8C50.1,-61.8,57.1,-50.1,62.1,-38C67.2,-25.9,70.3,-13.4,69.3,-1.4C68.3,10.6,63.2,21.3,56,30.6C48.8,39.9,39.5,47.9,28.3,52.1C17.1,56.3,3.9,56.7,-8.5,59.3C-21,61.9,-35.2,66.8,-45.8,63.6C-56.3,60.4,-63.2,49.1,-67,37.4C-70.8,25.8,-71.6,13.9,-70.4,2.2C-69.2,-9.5,-65,-19,-57.2,-27.5C-49.5,-36.1,-38.3,-43.7,-26.5,-49.8C-14.8,-55.9,-2.4,-60.5,9.5,-64C21.3,-67.4,33.2,-69.8,39.4,-70.8Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-      </div>
+    <section className="relative pt-10 overflow-hidden text-gray-800">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300"></div>
 
-      {/* Контент */}
-      <div className="relative z-10 container mx-auto px-6 sm:px-8 md:px-5 py-12 sm:py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-10 flex flex-col md:flex-row-reverse">
-        {/* Изображение */}
-        <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto flex justify-center">
-          <img src={banner} alt="Hero" className="z-10 w-full object-contain" />
-          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-b from-transparent to-[#4A16BD]" />
-
-          {/* Карточки */}
-          {[
-            {
-              icon: (
-                <FiAward className="text-blue-600 mr-2 text-xl sm:text-2xl md:text-3xl" />
-              ),
-              value: "+10000",
-              label: "студент",
-              position:
-                "top-2 right-[-15px] md:right-[-5px] md:top-[-4px] sm:right-[-40px] md:top-3 lg:top-4",
-              size: "w-24 sm:w-32 md:w-30 lg:w-40 p-1 sm:p-3 md:p-2 lg:p-3 ",
-            },
-            {
-              value: "+7000",
-              label: "адамдардың пікірі",
-              position: "bottom-6 left-[-20px] sm:left-[-70px]  md:bottom-10",
-              size: "w-24 sm:w-32 md:w-32 lg:w-40  p-1 sm:p-3 md:p-1 lg:p-3",
-            },
-          ].map(({ icon, value, label, position, size }, i) => (
-            <div
-              key={i}
-              className={`absolute ${position} bg-white shadow-md rounded-md ${size} flex items-center justify-center text-center`}
-            >
-              {icon}
-              <div className="flex flex-col justify-center items-center">
-                <p className="text-[13px] sm:text-base md:text-base font-semibold text-gray-800">
-                  {value}
-                </p>
-                <p className="text-[13px] sm:text- md:text-sm text-gray-500">
-                  {label}
-                </p>
-              </div>
-            </div>
-          ))}
-
-          {/* Цитата */}
-          <div className="absolute top-8 left-[-10px] sm:left-[-70px] md:left-[-90px] bg-white shadow-md rounded-md p-1 w-24 sm:w-36 md:w-25 lg:w-40 text-center md:top-16 md:p-0 lg:p-2">
-            <p className="text-[11px] sm:text-sm md:text-[13px] lg:text-[20px] italic text-gray-600">
-              “Қорқынышты жеңудің жолы — оны түсіну”
-            </p>
-          </div>
-        </div>
-
-        {/* Текст */}
-        <div className="space-y-6 text-center md:text-left order-last md:order-first">
-          <h1 className="font-extrabold leading-tight mt-10">
-            {["Еркін сөйле", "Еркін ойла", "Еркін бол!"].map((text, i) => (
-              <span
-                key={i}
-                className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-blue-200 to-purple-300 tracking-wide leading-tight"
-              >
-                {text}
-              </span>
-            ))}
-          </h1>
-
-          <p className="text-lg sm:text-base md:text-lg text-gray-100 max-w-xl leading-relaxed mx-auto md:mx-0 mt-6">
-            Бұл курс сізге дебат әлемінде сенімді сөйлеу мен
-            критикалық ойлау дағдыларын үйретеді.
-            <br />
-            <span className="mt-4 block">
-              Қазақстанның ең үздік университеттерінің тәжірибелі мамандарынан
-              дәріс алыңыз.
+      <div className="relative z-10 container mx-auto px-6 sm:px-8 md:px-5 py-12 sm:py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+        {/* Text part on left for large screens */}
+        <div className="space-y-6 text-center md:text-left order-2 md:order-1">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-pink-800">
+              Репродуктивное здоровье
             </span>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-pink-700 font-semibold">
+            Сохрани здоровье, сохрани будущее
           </p>
-
-          <div className="flex justify-center md:justify-start">
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 max-w-xl leading-relaxed mx-auto md:mx-0">
+            Репродуктивное здоровье находится в центре внимания ученых всего
+            мира. Под репродуктивным здоровьем подразумевается состояние полного
+            физического и социального благополучия, а не только отсутствие
+            заболеваний репродуктивной системы или нарушения ее функций.
+          </p>
+          <div className="flex justify-center md:justify-start mt-4">
             <a
-              href="https://wa.me/77714629004?text=Сәлем!%20Толық%20ақпарат%20алғым%20келеді."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white hover:bg-gray-100 transition text-indigo-700 font-semibold rounded-md py-3 px-8 md:py-4 md:px-12 lg:py-5 lg:px-16 text-base md:text-lg"
+              href="https://wa.me/77025707046?text=Здравствуйте,%20я%20хочу%20узнать%20больше%20о%20репродуктивном%20здоровье."
+              className="inline-block bg-pink-600 hover:bg-pink-700 transition text-white font-semibold rounded-md py-3 px-8 text-base md:text-lg shadow-md hover:shadow-lg"
             >
-              Толық ақпарат алу
+              Узнать больше
             </a>
           </div>
         </div>
+
+        {/* Image part on right for large screens */}
+        <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto flex justify-center order-1 md:order-2">
+          <div className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden bg-white shadow-2xl flex items-center justify-center relative">
+            <img
+              src={banner}
+              alt="Fertility"
+              className="w-full h-full object-cover"
+            />
+            {/* Decorative border around the image */}
+            <div className="absolute inset-0 rounded-full border-4 border-pink-300 animate-pulse" />
+          </div>
+
+          {/* Example of cards on top of the image */}
+          <div className="absolute top-[-10px] left-0">
+            <div className="bg-white p-3 shadow-md rounded-md flex items-center hover:shadow-lg transition">
+              <FiHeart className="text-pink-500 text-xl mr-2" />
+              <div>
+                <p className="text-sm font-semibold text-gray-700">10 years</p>
+                <p className="text-xs text-gray-500">Experience</p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-10 right-[-70px]">
+            <div className="bg-white p-3 shadow-md rounded-md flex items-center mb-3 hover:shadow-lg transition">
+              <FiHeart className="text-pink-500 text-xl mr-2" />
+              <div>
+                <p className="text-sm font-semibold text-gray-700">+500</p>
+                <p className="text-xs text-gray-500">Successful IVF</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Wave at the bottom for a smooth transition */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+        <svg
+          className="relative block w-[calc(100%+1.3px)] h-[100px]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.36c59.73,0,117.43,17.69,177.16,21.07,46,2.62,90.09-6.19,134.82-6.19,86.7,0,172.08,16.17,258.78,6.55,56.38-6.47,108.07-22.44,162.87-29.65,30.28-3.85,59.67-2,89.07,3.45v68.4H0V95.78c30.28-11.92,69.71-26.23,97.87-24.7C172.54,73.54,247.76,56.36,321.39,56.36Z"
+            fill="#ffffff"
+          />
+        </svg>
       </div>
     </section>
   );
 };
 
-export default HeroEduStyle;
+export default HeroFertility;
