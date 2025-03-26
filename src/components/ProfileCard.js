@@ -1,169 +1,58 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import clsx from "clsx";
+import React from "react";
+import lll from "../assets/images/lll.jpeg"; // Путь к первому изображению
+import llll from "../assets/images/llll.jpeg"; // Путь ко второму изображению
+import l from "../assets/images/l.jpeg"; // Путь ко второму изображению
 
-function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    setIsScrolled(window.scrollY > 10);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
-  const handleNavClick = (sectionId) => {
-    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
-
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const navItems = [
-    "Актуальные данные",
-    "Репродуктивное здоровье",
-    "Вопросы",
-    "Данные",
-  ];
-
+const ProfileCard = ({ name, title, instagramLink, imageUrl, altText }) => {
   return (
-    <header
-      className={clsx(
-        "fixed w-full z-50 transition-all duration-300 backdrop-blur-md",
-        isScrolled
-          ? "py-3 bg-white/95 shadow-sm"
-          : "py-4 bg-gradient-to-r from-pink-500 to-pink-600"
-      )}
-    >
-      <div className="relative container mx-auto px-4 sm:px-12 md:px-2 lg:px-4 xl:px-5 flex items-center justify-between">
+    <div className="text-center max-w-xs p-6 bg-gradient-to-t from-pink-100 to-pink-300 rounded-xl shadow-2xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+      <img
+        src={imageUrl}
+        alt={altText}
+        className="w-72 h-72 object-cover rounded-full mx-auto mb-6 border-4 border-pink-500"
+      />
+      <div>
+        <h3 className="text-3xl font-semibold text-gray-800 mb-2">{name}</h3>
+        <p className="text-lg text-gray-600 mb-6">{title}</p>
         <a
-          href="/"
-          className={clsx(
-            "text-xl md:text-2xl font-bold transition-colors",
-            isScrolled ? "text-pink-600" : "text-white"
-          )}
+          href={instagramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-pink-600 hover:underline text-lg"
         >
-          Reproductive <span className="ml-1">Health</span>
+          Instagram
         </a>
-
-        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() =>
-                handleNavClick(item.toLowerCase().replace(" ", "-"))
-              }
-              className={clsx(
-                "font-medium transition-colors focus:outline-none",
-                isScrolled
-                  ? "text-gray-700 hover:text-pink-500"
-                  : "text-pink-100 hover:text-white"
-              )}
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
-
-        {/* Use Link here instead of button */}
-        <Link
-          to="/contact"
-          className={clsx(
-            "hidden md:block font-medium px-6 py-3 rounded-full transition-all",
-            isScrolled
-              ? "bg-pink-500 hover:bg-pink-600 text-white"
-              : "bg-white hover:bg-pink-100 text-pink-700"
-          )}
-        >
-          Регистрация
-        </Link>
-
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={clsx(
-            "md:hidden p-2 rounded-md focus:outline-none transition-colors",
-            isScrolled
-              ? "text-pink-600 focus:ring-2 focus:ring-pink-300"
-              : "text-white focus:ring-2 focus:ring-white/50"
-          )}
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isMobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
       </div>
-
-      {/* Мобильное меню */}
-      {isMobileMenuOpen && (
-        <div
-          className={clsx(
-            "md:hidden absolute top-full left-0 w-full shadow-lg border-t flex flex-col items-center",
-            isScrolled
-              ? "bg-white border-gray-100"
-              : "bg-pink-600 border-pink-400"
-          )}
-        >
-          <div className="container mx-auto px-4 py-4 space-y-3 w-full text-center">
-            {navItems.map((item) => (
-              <button
-                key={item}
-                onClick={() =>
-                  handleNavClick(item.toLowerCase().replace(" ", "-"))
-                }
-                className={clsx(
-                  "block px-4 py-2 rounded-lg transition focus:outline-none",
-                  isScrolled
-                    ? "text-gray-700 hover:bg-pink-50 hover:text-pink-600"
-                    : "text-pink-100 hover:bg-pink-500 hover:text-white"
-                )}
-              >
-                {item}
-              </button>
-            ))}
-            <div className="px-4 pt-2 pb-1">
-              {/* Use Link for mobile menu */}
-              <Link
-                to="/contact"
-                className={clsx(
-                  "hidden md:block font-medium px-6 py-3 rounded-full transition-all",
-                  isScrolled
-                    ? "bg-pink-500 hover:bg-pink-600 text-white"
-                    : "bg-white hover:bg-pink-100 text-pink-700"
-                )}
-              >
-                Регистрация
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
+    </div>
   );
-}
+};
 
-export default Header;
+const Profiles = () => {
+  return (
+    <div className="flex flex-col md:flex-row justify-center items-center md:space-x-12 mt-16 md:space-y-0 space-y-12">
+      <ProfileCard
+        name="Айгуль Ешматова"
+        title="Основатель DarMed"
+        instagramLink="https://www.instagram.com/dr_yeshmatova?igsh=czEyZDV4eTBxcHhi"
+        imageUrl={llll} // Используем lll.jpeg
+        altText="Айгуль Ешматова"
+      />
+      <ProfileCard
+        name="Дүйсенбаева Әйгерім"
+        title="Акушер гинеколог репродуктолог"
+        instagramLink="https://www.instagram.com/aygerim_duisenbayeva?igsh=ZzJ5OW81cTgycHZr"
+        imageUrl={lll} // Используем llll.jpeg
+        altText="Дүйсенбаева Әйгерім"
+      />
+      <ProfileCard
+        name="Амир Айерке"
+        title="Лучший студент года 2024"
+        instagramLink=" https://www.instagram.com/aiiokin_?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw=="
+        imageUrl={l} // Используем llll.jpeg
+        altText="Дүйсенбаева Әйгерім"
+      />
+    </div>
+  );
+};
+
+export default Profiles;
