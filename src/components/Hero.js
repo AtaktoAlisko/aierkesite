@@ -48,24 +48,6 @@ const HeroFertility = () => {
           </div>
 
           {/* Example of cards on top of the image */}
-          <div className="absolute top-[-10px] left-0">
-            <div className="bg-white p-3 shadow-md rounded-md flex items-center hover:shadow-lg transition">
-              <FiHeart className="text-pink-500 text-xl mr-2" />
-              <div>
-                <p className="text-sm font-semibold text-gray-700">The best</p>
-                <p className="text-xs text-gray-500">Student</p>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-10 right-[-10px] md:right-[-60px]">
-            <div className="bg-white p-3 shadow-md rounded-md flex items-center mb-3 hover:shadow-lg transition">
-              <FiHeart className="text-pink-500 text-xl mr-2" />
-              <div>
-                <p className="text-sm font-semibold text-gray-700">The best</p>
-                <p className="text-xs text-gray-500">Women</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
